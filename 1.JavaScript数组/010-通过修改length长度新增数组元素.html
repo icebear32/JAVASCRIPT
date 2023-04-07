@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>通过修改 length 长度新增数组元素</title>
+    <script>
+        // 新增数组元素 修改length长度 
+        var arr = ['red', 'green', 'blue'];
+        console.log(arr.length);
+        console.log(arr);
+        arr.length = 5; // 把我们数组的长度修改为了 5  里面应该有5个元素
+        console.log(arr.length);
+        console.log(arr);
+        console.log('arr[3] = ' + arr[3]); // undefined
+        console.log('arr[4] = ' + arr[4]); // undefined
+        
+        // 新增数组元素 修改索引号 追加数组元素
+        arr[3] = 'black';
+        arr[4] = 'gray';
+        console.log('arr[3] = ' + arr[3]); // black
+        console.log('arr[4] = ' + arr[4]); // glay
+
+        // 替换原来的数组元素
+        arr[0] = 'after red';
+        console.log(arr[0]);
+
+        // 不能直接给数组名赋值，否则会覆盖掉以前的数据
+        arr = '不能直接给数组名赋值，否则会覆盖掉以前的数据';
+        console.log(arr);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
