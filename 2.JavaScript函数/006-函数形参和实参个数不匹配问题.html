@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数形参和实参个数不匹配问题</title>
+    <script>
+        function sum(num1, num2) {
+            console.log(num1 + num2);
+        }
+        sum(100, 200);  // 形参和实参个数相等，输出正确结果，结果为300
+        sum(100, 400, 500, 700); // 实参个数多于形参，只取到形参的个数，结果为500
+        sum(200); // 实参个数少于形参，多的形参定义为undefined，结果为NaN
+
+        // 注意：在JavaScript中，形参的默认值是undefined
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
