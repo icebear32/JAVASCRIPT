@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>输出当前年份2月份的天数</title>
+    <script>
+        function isLeapYear(year) {
+            if (year % 4 === 0 && year % 100 !== 0 || year % 400 === 0) {
+                console.log(year + ' 是润年 28天！');
+            } else {
+                console.log(year + ' 是平年 29天！');
+            }
+        }
+
+        isLeapYear(2000);
+        isLeapYear(2010);
+    </script>
+</head>
+<body>
+    <!-- 用户输入年份，输出当前年份2月份的天数 -->
+</body>
+</html>
