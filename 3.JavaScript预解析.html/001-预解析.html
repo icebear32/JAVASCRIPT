@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>预解析</title>
+    <script>
+        // (1)
+        // console.log(num); // 报错：Uncaught ReferenceError: num is not defined
+
+        // (2)
+        console.log(num); // undefined 为什么？
+        var num = 10;
+        // 因为先进行预解析 再进行代码执行
+        // 相当于执行了以下代码
+        // var num; // 先变量预解析（变量提升）
+        // console.log(num); // 代码执行，因为没赋值，所以是 undefined
+        // num = 10; // 再进行赋值 =10
+
+        // (3)
+        fn1();
+        function fn1() { // 函数提升
+            console.log(11);
+        }
+        function fn2() { // 函数提升
+            console.log(22);
+        }
+        fn2();
+        // 因为预解析的函数提升，函数声明提升到当前作用域的最前面，
+        // 所以函数调用放在 函数声明 前面还是后面都可以
+
+        // (4)
+        // fun(); // 报错  为什么？
+        // var fun = function () {
+        //     console.log(33);
+        // }
+        // 函数表达式 调用必须写在函数表达式的下面
+        // 
+        // 先进行预解析 再进行代码执行
+        // 相当于执行了以下代码
+        // var fun; // 变量提升 - 声明变量 fun 没有赋值
+        // fun(); // 代码执行 - 因为没有这个 fun 函数，但是调用 fun() 函数，所以会报错
+        // fun = function () {
+        //     console.log(33);
+        // }
+        // 
+        var fun = function () {
+            console.log(33);
+        }
+        fun();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
