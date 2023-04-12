@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>利用构造函数创建两个英雄对象</title>
+    <script>
+        function Hero(name, type, blood, attack) {
+            this.name = name;
+            this.type = type;
+            this.blood = blood;
+            this.attack = attack;
+            this.newHero = function () {
+                console.log(this.name + ' 是 ' + this.type + '英雄，血量 ' + this.blood + '，属于' + this.attack + '攻击');
+            }
+        }
+
+        var lp = new Hero('廉颇', '力量型', 500, '近战');
+        var hy = new Hero('后羿', '射手型', 100, '远程');
+        lp.newHero();
+        hy.newHero();
+    </script>
+</head>
+
+<body>
+    <!-- 利用构造函数创建两个英雄对象 -->
+    <!-- 
+        函数中的公共部分包括：
+            姓名属性(name)
+            类型属性（type）
+            血量属性（blood）
+            攻击方式（attack） 
+    -->
+    <!-- 
+        廉颇   力量型    500血量    攻击：近战
+        后羿   射手型    100血量    攻击：远程
+     -->
+</body>
+
+</html>
