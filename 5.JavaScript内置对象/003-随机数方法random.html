@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机数方法 random()</title>
+    <script>
+        // Math对象随机数方法 random() 
+        // 返回一个随机的小数  0 =< x < 1
+        console.log(Math.random());
+
+        // 得到一个两数之间的随机数
+        // 这个值不小于 min（有可能等于），并且小于（不等于）max
+        function getRandomArbitrary(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+        console.log(getRandomArbitrary(1, 8));
+
+        // 得到一个两数之间的随机整数
+        // 这个值不小于 min （如果 min 不是整数，则不小于 min 的向上取整数），且小于（不等于）max
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min)) + min; //不含最大值，含最小值
+        }
+        console.log(getRandomInt(1, 5));
+
+        // 得到一个两数之间的随机整数，包括两个数在内
+        // Math.floor(Math.random() * (max - min + 1)) + min;
+        function getRandomIntInclusive(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min; //含最大值，含最小值
+        }
+        console.log(getRandomIntInclusive(1, 20));
+
+        // 随机点名
+        var arr = ['zs', 'ls', 'ww', 'zl', 'sq', 'zb', 'wj', 'zs'];
+        console.log(arr[0]);
+        console.log(arr[getRandomIntInclusive(0, arr.length - 1)]);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
