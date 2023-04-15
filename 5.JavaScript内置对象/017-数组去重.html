@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组去重</title>
+    <script>
+        var arr1 = ['c', 'a', 'z', 'a', 'x', 'a', 'x', 'c', 'b'];
+        var arr2 = [];
+        for (var i = 0; i < arr1.length; i++) {
+            if (arr2.indexOf(arr1[i]) == -1) {
+                arr2.push(arr1[i]);
+            }
+        }
+
+        console.log('arr1 = [' + arr1 + ']');
+        console.log('arr2 = [' + arr2 + ']');
+    </script>
+</head>
+
+<body>
+    <!-- 数组去重 -->
+    <!-- 有一个数组['c', 'a', 'z', 'a', 'x', 'a', 'x', 'c', 'b']，要求去除数组中重复的元素 -->
+</body>
+
+</html>
