@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串操作方法</title>
+    <script>
+        var str1 = 'asdf';
+        var str2 = 'ghjkl';
+
+        var str3 = str1.concat(str2);
+        console.log('str3 = ' + str3); // str3 = asdfghjkl
+
+        console.log('substr ' + str3.substr(3, 3)); // substr fgh
+
+        console.log('slice ' + str3.slice(3, 6)); // slice fgh
+        console.log('slice ' + str3.slice(3, -2)); // slice fghj
+
+        console.log('substring ' + str3.substring(3, 6)); // substring fgh
+        console.log('substring ' + str3.substring(3, -2)); //substring asd
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>根据字符返回位置</title>
+    <script>
+        // 查找字符串"abcoefoxyozzopp"中所有o出现的位置以及次数
+        // 核心算法：先查找第一个o出现的位置
+        // 然后 只要indexOf 返回的结果不是 -1 就继续往后查找
+        // 因为indexOf 只能查找到第一个，所以后面的查找，一定是当前索引加1，从而继续查找
+        var str = 'abcoefoxyozzopp';
+        var index = str.indexOf('o');
+        var num = 0;
+        var indexs = 0;
+        while (index !== -1) {
+            indexs = index;
+            console.log('indexs = ' + indexs);
+            num++;  
+            index = str.indexOf('o', index + 1);
+        }
+        console.log('num = ' + num);
+
+
+        // -------------- lastIndexOf --------------
+        var str1 = 'abcoefoxyozzopp';
+        var index1 = str1.lastIndexOf('o', str1.length);
+        var num1 = 0;
+        var indexs = 0;
+        console.log(index1);
+        while (index1 !== -1) {
+            indexs = index1;
+            console.log('indexs = ' + indexs);
+            num1++;
+            index1 = str1.lastIndexOf('o', index1 - 1);
+        }
+        console.log('num1 = ' + num1);
+    </script>
+</head>
+
+<body>
+    <!-- 查找字符串"abcoefoxyozzopp"中所有o出现的位置以及次数 -->
+</body>
+
+</html>
