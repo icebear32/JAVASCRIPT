@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常见的鼠标事件</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+        }
+
+        #div4 {
+            width: 100px;
+            height: 120px;
+        }
+
+        input {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1">div1</div>
+    <div id="div2">div2</div>
+    <div id="div3">div3</div>
+    <div id="div4">
+        input1<input type="text" id="input1" value="请输入内容">
+        input2<input type="text" id="input2" value="请输入内容">
+    </div>
+    <!-- <button id="btn1">选我！</button>
+    <button id="btn2">选他！</button> -->
+    <div id="div5">div5</div>
+    <div id="div6">div6</div>
+    <div id="div7">div7</div>
+    <script>
+        var div1 = document.getElementById('div1');
+        div1.onclick = function () {
+            console.log('div1 鼠标点击左键触发 被选中！');
+        }
+
+        var div2 = document.getElementById('div2');
+        div2.onmouseover = function () {
+            console.log('div2 鼠标经过触发 被选中！');
+        }
+
+        var div3 = document.getElementById('div3');
+        div3.onmouseout = function () {
+            console.log('div3 鼠标离开触发 被选中！');
+        }
+
+        var input1 = document.getElementById('input1');
+        input1.onfocus = function () {
+            input1.style.background = '#f0f';
+        }
+
+        var input2 = document.getElementById('input2');
+        input2.onblur = function () {
+            input2.style.background = '#f6f6f6';
+        }
+
+        var div5 = document.getElementById('div5');
+        div5.onmousemove = function () {
+            div5.style.background = 'yellow';
+            console.log('div5 鼠标移动触发 被选中！');
+        }
+
+        var div6 = document.getElementById('div6');
+        div6.onmouseup = function () {
+            div6.style.background = 'blue';
+            console.log('div6 鼠标弹起触发 被选中！');
+        }
+
+        var div7 = document.getElementById('div7');
+        div7.onmousedown = function () {
+            div7.style.background = '#eee';
+            console.log('div7 鼠标按下触发 被选中！');
+        }
+    </script>
+</body>
+
+</html>
