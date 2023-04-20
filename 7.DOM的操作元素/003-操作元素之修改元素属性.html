@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>操作元素之修改元素属性</title>
+</head>
+<body>
+    <button id="dyz">第一张</button>
+    <button id="dez">第二张</button><br>
+    <img src="../img/1.png" alt="#" title="第一张">
+
+    <script>
+        // 修改元素属性 src
+        var dyz = document.getElementById('dyz');
+        var dez = document.getElementById('dez');
+        var img = document.querySelector('img');
+        dez.onclick = function() {
+            img.src = '../img/2.png';
+            img.title = '第二张';
+        }
+
+        
+        dyz.onclick = function() {
+            img.src = '../img/1.png';
+            img.title = '第一张';
+        }
+    </script>
+</body>
+</html>

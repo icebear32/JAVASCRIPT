@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>操作元素之表单属性设置</title>
+</head>
+<body>
+    <button id="btn1">按钮</button>
+    <input type="text" value="输入内容" id="input1">
+    <br>
+    <button id="btn2">按钮</button>
+    <input type="text" value="输入内容" id="input2">
+    <br>
+    <button id="btn3">按钮</button>
+    <input type="text" value="输入内容" id="input3">
+    <br>
+    <button id="btn4">按钮</button>
+    <input type="text" value="输入内容" id="input4">
+    
+    <script>
+        var btn1 = document.getElementById('btn1');
+        var input1 = document.getElementById('input1');
+        btn1.onclick = function() {
+            input1.innerHTML = '点击了'; // 这个是 普通盒子 比如 div 标签里面的内容
+        }
+
+        // 获取元素
+        var btn2 = document.getElementById('btn2');
+        var input2 = document.getElementById('input2');
+        // 注册事件 处理程序
+        btn2.onclick = function() {
+            // 表单里面的值 文字内容是通过 value 来修改的
+            input2.value = '点击了';
+        }
+
+        var btn3 = document.getElementById('btn3');
+        var input3 = document.getElementById('input3');
+        btn3.onclick = function() {
+            input3.value = '点击了';
+            // 如果想要某个表单被禁用 不能再点击 disabled  我们想要这个按钮 button禁用
+            btn3.disabled = true;
+        }
+
+        var btn4 = document.getElementById('btn4');
+        var input4 = document.getElementById('input4');
+        btn4.onclick = function() {
+            input4.value = '点击了';
+            // 跟上一个一样的功能
+            this.disabled = true;
+            // this 指向的是事件函数的调用者 btn
+        }
+    </script>
+</body>
+</html>
