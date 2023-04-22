@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>通过className更改元素样式</title>
+</head>
+<body>
+    <div class="first">文本1</div>
+    <div class="second">文本2</div>
+    <script>
+        var test = document.querySelector('div');
+        test.onclick = function() {
+            this.style.backgroundColor = 'red';
+            this.style.color = 'green';
+            this.style.fontSize = '25px';
+            this.style.marginTop = '100px';
+            console.log(test);
+        }
+
+        var test1 = document.querySelectorAll('div');
+        test1[1].onclick = function() {
+            // 通过 修改元素的className更改元素的样式 适合于样式较多或者功能复杂的情况
+            // 当前元素的类名改为了 change
+            this.className = 'second';
+            // 如果想要保留原先的类名，可以使用 多类名选择器
+            this.className = 'second change';
+            console.log(test1[1]);
+        }
+    </script>
+</body>
+</html>
