@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创建和添加节点</title>
+</head>
+<body>
+    <ul></ul>
+    <ol>
+        <li>123</li>
+    </ol>
+    <script>
+        // 创建节点元素节点
+        var li = document.createElement('li');
+        
+        // 添加节点 node.appendChild(child)  node 父级  child 是子级 
+        // 将一个节点添加到指定父节点的子节点列表末尾
+        var ul = document.querySelector('ul');
+        ul.appendChild(li);
+        // 后面追加元素  类似于数组中的push
+        var ol = document.querySelector('ol');
+        var li1 = document.createElement('li');
+        ol.appendChild(li1); 
+
+        // 添加节点 node.insertBefore(child, 指定元素);
+        // 将一个节点添加到父节点的指定子节点前面
+        var li2 = document.createElement('li');
+        ol.insertBefore(li2,ol.children[0]); // 在 <li>123</li> 添加 li 元素
+    </script>
+</body>
+</html>
