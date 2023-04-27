@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册事件兼容性解决方案</title>
+</head>
+
+<body>
+    <button>传统注册事件</button>
+    <button>方法监听注册事件</button>
+    <button>ie9 attachEvent</button>
+    <script>
+        var btns = document.querySelectorAll('button');
+
+        addEventListener(btns[0], 'click', fn);
+        addEventListener(btns[1], 'click', fn);
+        addEventListener(btns[2], 'click', fn);
+
+        function addEventListener(element, eventName, fn) {
+            // 判断当前浏览器是否支持 addEventListener 方法
+            if (element.addEventListener) {
+                element.addEventListener(eventName, fn);  // 第三个参数 默认是false
+            } else if (element.attachEvent) {
+                element.attachEvent('on' + eventName, fn);
+            } else {
+                // 相当于 element.onclick = fn;
+                element['on' + eventName] = fn;
+            }
+        }
+
+        function fn() {
+            alert(111);
+        }
+    </script>
+</body>
+
+</html>

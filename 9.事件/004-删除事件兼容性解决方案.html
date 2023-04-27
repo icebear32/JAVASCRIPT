@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>删除事件兼容性解决方案</title>
+</head>
+
+<body>
+    <button>传统删除事件</button>
+    <button>方法监听删除事件</button>
+    <button>ie9 detachEvent</button>
+    <script>
+        var btns = document.querySelectorAll('button');
+
+        removeEventListeners(btns[0], 'click', fn);
+        removeEventListeners(btns[1], 'click', fn);
+        removeEventListeners(btns[2], 'click', fn1);
+
+        function removeEventListeners(element, eventName, fn) {
+            // 判断当前浏览器是否支持 removeEventListener 方法
+            if (element.removeEventListener) {
+                element.addEventListener(eventName, fn);  // 第三个参数 默认是false
+            } else if (element.detachEvent) {
+                element.addEventListener('on' + eventName, fn);
+            } else {
+                element['on' + eventName] = null;
+            }
+        }
+
+        function fn() {
+            alert(11);
+            divs[1].removeEventListener('click', fn);
+        }
+
+        function fn1() {
+            alert(33);
+            divs[2].detachEvent('onclick', fn1);
+        }
+    </script>
+</body>
+
+</html>
