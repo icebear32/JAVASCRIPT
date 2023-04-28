@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件对象阻止默认行为</title>
+    <style>
+        div {
+            height: 50px;
+            width: 50px;
+            margin-bottom: 20px;
+            background-color: aqua;
+        }
+
+        a {
+            margin-right: 20px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>123</div>
+    <a href="http://www.baidu.com">百度</a>
+    <a href="http://www.baidu.com">百度</a>
+    <a href="http://www.baidu.com">百度</a>
+    <a href="http://www.baidu.com">百度</a>
+    <form action="http://www.baidu.com">
+        <input type="submit" value="提交" name="sub">
+    </form>
+    <script>
+        // 常见事件对象的属性和方法
+        // 返回事件类型
+        var div = document.querySelector('div');
+        div.addEventListener('click', fn);
+        div.addEventListener('mouseover', fn);
+        div.addEventListener('mouseout', fn);
+
+        function fn (e) {
+            console.log(e.type);
+        }
+
+        // 阻止默认行为（事件） 让链接不跳转 或者让提交按钮不提交
+        var as = document.querySelectorAll('a');
+        as[0].addEventListener('click',function(e) {
+            e.preventDefault(); // dom 标准写法
+        })
+
+        // 传统的注册方式
+        as[1].onclick = function (e) {
+            // 普通浏览器 e.preventDefault();  方法
+            e.preventDefault();
+        }
+
+        as[2].onclick = function (e) {
+            // 低版本浏览器 ie678  returnValue  属性
+            e.returnValue;
+        }
+
+        as[3].onclick = function(e) {
+            // 可以利用return false 也能阻止默认行为 没有兼容性问题 特点： return 后面的代码不执行了， 而且只限于传统的注册方式
+            return false;
+            alert(11);
+        }
+    </script>
+</body>
+
+</html>

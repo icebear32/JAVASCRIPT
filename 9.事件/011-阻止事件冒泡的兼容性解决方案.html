@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阻止事件冒泡的兼容性解决方案</title>
+    <style>
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: khaki;
+        }
+
+        .father {
+            width: 150px;
+            height: 150px;
+            background-color: honeydew;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son">son</div>
+    </div>
+    <script>
+        var son = document.querySelector('.son');
+        son.addEventListener('click', function (e) {
+            alert('son');
+            if (e && e.stopPropagation) {
+                e.stopPropagation();
+            } else {
+                window.event.cancelBubble = true;
+            }
+        }, false);
+        var father = document.querySelector('.father');
+        father.addEventListener('click', function () {
+            alert('father');
+        }, false);
+    </script>
+</body>
+
+</html>

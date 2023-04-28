@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阻止事件冒泡</title>
+    <style>
+        .father,
+        .bb {
+            overflow: hidden;
+            width: 300px;
+            height: 300px;
+            margin: 100px auto;
+            background-color: khaki;
+            text-align: center;
+        }
+
+        .son,
+        .ez {
+            width: 200px;
+            height: 200px;
+            margin: 50px;
+            background-color: honeydew;
+            line-height: 200px;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son">son儿子</div>
+    </div>
+    <br>
+    <div class="bb">
+        <div class="ez">son儿子</div>
+    </div>
+    <script>
+        // 常见事件对象的属性和方法
+        // 阻止冒泡  dom 推荐的标准 stopPropagation() 
+        var son = document.querySelector('.son');
+        son.addEventListener('click', function (e) {
+            alert('son');
+            e.stopPropagation(); // stop 停止  Propagation 传播
+        }, false);
+
+        var father = document.querySelector('.father');
+        father.addEventListener('click', function () {
+            alert('father');
+        }, false);
+        document.addEventListener('click', function () {
+            alert('document');
+        })
+
+        // ----- e.cancelBubble = true; IE 6-8  低版本
+        var ez = document.querySelector('.ez');
+        ez.addEventListener('click', function (e) {
+            alert('ez');
+            e.cancelBubble = true; // 非标准 cancel 取消 bubble 泡泡
+        }, false);
+
+        var bb = document.querySelector('.bb');
+        bb.addEventListener('click', function () {
+            alert('bb');
+        }, false);
+        document.addEventListener('click', function () {
+            alert('document');
+        })
+    </script>
+</body>
+
+</html>
