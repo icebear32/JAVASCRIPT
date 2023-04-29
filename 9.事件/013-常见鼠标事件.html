@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常见鼠标事件</title>
+</head>
+
+<body>
+    <p class="p1">禁用右键菜单</p>
+    <p class="p2">禁止选中文字</p>
+    <p class="p3">禁用右键菜单 和 禁止选中文字</p>
+    <script>
+        // contextmenu 禁用右键菜单
+        var p1 = document.querySelector('.p1');
+        p1.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        })
+
+        // 禁止选中文字 selectstart
+        var p2 = document.querySelector('.p2');
+        p2.addEventListener('selectstart', function (e) {
+            e.preventDefault();
+        })
+
+        var p3 = document.querySelector('.p3');
+        p3.addEventListener('selectstart', function (e) {
+            e.preventDefault();
+            e.preventDefault();
+        })
+    </script>
+</body>
+
+</html>
