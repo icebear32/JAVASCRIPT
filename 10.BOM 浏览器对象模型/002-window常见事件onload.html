@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window常见事件onload</title>
+    <script>
+        // window.onload 就可以把 JS 代码写到页面元素的上方，因为 onload 是等页面内容全部加载完毕，再去执行处理函数
+        window.onload = function () {
+            var btn1 = document.querySelector('.btn1');
+            btn1.addEventListener('click', function () {
+                alert('点击一次');
+            })
+        }
+
+        // window.onload 传统注册事件方式 只能写一次，如果有多个，会以最后一个 window.onload 为准
+        window.onload = function () {
+            alert(22);
+        }
+
+        // 使用 addEventListener 则没有限制，可以写多个window.onload
+        window.addEventListener('load', function () {
+            var btn2 = document.querySelector('.btn2');
+            btn2.addEventListener('click', function () {
+                alert('再次点击');
+            })
+        })
+        window.addEventListener('load', function () {
+            alert(22);
+        })
+
+        // load 等页面内容全部加载完毕，包含页面dom元素 图片 flash  css 等等
+        // DOMContentLoaded 是DOM 加载完毕，不包含图片 falsh css 等就可以执行 加载速度比 load更快一些
+        document.addEventListener('DOMContentLoaded', function () {
+            alert(33);
+        })
+    </script>
+</head>
+
+<body>
+    <!-- 把 script 标签内容放在 button 上面，没有出现弹框 -->
+    <!-- 报错：Uncaught TypeError: btn1 is null -->
+    <!-- <script>
+        var btn1 = document.querySelector('.btn1');
+        btn1.addEventListener('click', function () {
+            alert('点击');
+        })
+    </script> -->
+    <button class="btn1">点击</button>
+    <button class="btn2">再次点击</button>
+    <!-- 可以出现弹框 -->
+    <!-- <script>
+        var btn1 = document.querySelector('.btn1');
+        btn1.addEventListener('click', function () {
+            alert('点击');
+        })
+    </script> -->
+</body>
+
+</html>
