@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js 执行队列</title>
+</head>
+
+<body>
+    <script>
+        // 问题1：执行结果是什么？
+        console.log('问题1：执行结果是什么？')
+        console.log(1);
+
+        setTimeout(function() {
+            console.log(3);
+        }, 1000);
+
+        console.log(2);
+        console.log('执行结果：异步处理，在第二个setTimeout任务代码执行得同时第三个任务代码执行');
+    </script>
+</body>
+
+</html>

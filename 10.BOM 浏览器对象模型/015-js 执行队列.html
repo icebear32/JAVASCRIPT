@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js 执行队列</title>
+</head>
+
+<body>
+    <script>
+        // 问题2：执行结果是什么？
+        console.log('问题2：执行结果是什么？')
+        console.log(1);
+
+        setTimeout(function() {
+            console.log(3);
+        }, 0);
+
+        console.log(2);
+        console.log('执行结果：主程序执行栈 先执行同步任务的内容，然后再去任务队列找要执行回调函数');
+    </script>
+</body>
+
+</html>
