@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>offsetParent属性</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .father {
+            /* position: relative; */
+            width: 200px;
+            height: 200px;
+            background-color: khaki;
+            margin: 150px;
+        }
+        
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: mediumaquamarine;
+            margin-left: 45px;
+        }
+
+        .father1 {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="father father1">father
+        <div class="son son1">son</div>
+    </div>
+
+    <div class="father father2">father
+        <div class="son son2">son</div>
+    </div>
+    <script>
+        // 返回带有定位的父级 否则返回的是body
+        var son1 = document.querySelector('.son1');
+        console.log(son1.offsetParent);
+
+        // 父级没有定位，返回body
+        var son2 = document.querySelector('.son2');
+        console.log(son2.offsetParent);
+
+        // 回顾
+        // 返回父级 是最近一级的父级  不管父级有没有定位
+        console.log(son1.parentNode);
+        console.log(son2.parentNode);
+    </script>
+</body>
+</html>

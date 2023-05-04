@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>offset与style的区别</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: khaki;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">box1</div>
+    <div class="box2" style="width: 200px;">box2</div>
+    <div class="box3">box3</div>
+    <script>
+        // offset 可以得到任意样式表中的样式值
+        // style 只能得到行内样式表中的样式值
+        var box1 = document.querySelector('.box1');
+        console.log(box1.offsetWidth); // 220
+        console.log(box1.style.width);
+        // 因为样式是写在外部，不是行内样式，
+        // 所以取不到值<empty string>
+
+        // offset 系列获得的数值是没有单位的
+        // style.width 获得的是带有单位的字符串
+        var box2 = document.querySelector('.box2');
+        console.log(box2.offsetWidth); // 220
+        console.log(box2.style.width); // 220px
+
+        // offsetWidth 等属性是只读属性，只能获取不能赋值
+        var box3 = document.querySelector('.box3');
+        // box3.offsetWidth = '300px';
+        // style.width 是可读写属性，可以获取也可以赋值
+        box3.style.width = '300px';
+    </script>
+</body>
+
+</html>

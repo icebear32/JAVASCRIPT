@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>offsetLeft 和 offsetTop 获取元素偏移</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .div1 {
+            width: 200px;
+            height: 200px;
+            background-color: khaki;
+            margin: 50px;
+        }
+
+        .father {
+            width: 200px;
+            height: 200px;
+            background-color: khaki;
+            margin: 50px;
+        }
+
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: mediumaquamarine;
+            margin-left: 45px;
+        }
+
+        .father2 {
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1">div1</div>
+
+    <div class="father">
+        <div class="son son1">son1</div>
+    </div>
+
+    <div class="father father2">
+        <div class="son son2">son2</div>
+    </div>
+    <script>
+        var div1 = document.querySelector('.div1');
+
+        // offsetTop offsetLeft 得到元素的偏移 位置
+        // 返回的不带单位的数值
+        console.log(div1.offsetTop);
+        console.log(div1.offsetLeft);
+
+        // 以带有定位的父亲为准  如果没有父亲或者父亲没有定位 则以 body 为准
+        // var father = document.querySelector('.father');
+        var son1 = document.querySelector('.son1');
+        console.log(son1.offsetTop); //300
+        console.log(son1.offsetLeft); // 95
+
+        // 父亲加了定位
+        var son2 = document.querySelector('.son2')
+        console.log(son2.offsetTop); // 0
+        console.log(son2.offsetLeft); // 45
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取元素大小</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            /* margin: 0 auto 200px; */
+            margin-bottom: 10px;
+        }
+
+        .w2 {
+            padding: 10px;
+        }
+
+        .w3 {
+            padding: 10px;
+            border: 10px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="w w1">w1</div>
+    <div class="w w2">w2</div>
+    <div class="w w3">w3</div>
+    <script>
+        // offsetWidth offsetHeight 得到元素的大小
+        // 宽度和高度 是包含padding + border + width 
+        var w1 = document.querySelector('.w1');
+        console.log(w1.offsetWidth);
+        console.log(w1.offsetHeight);
+
+        // 加入 padding 盒子被撑大，也算入盒子元素的大小
+        var w2 = document.querySelector('.w2');
+        console.log(w2.offsetWidth);
+        console.log(w2.offsetHeight);
+
+        // 加入 border 盒子被撑大，也算入盒子元素的大小
+        var w3 = document.querySelector('.w3');
+        console.log(w3.offsetWidth);
+        console.log(w3.offsetHeight);
+    </script>
+</body>
+
+</html>
